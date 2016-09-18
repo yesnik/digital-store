@@ -1,7 +1,22 @@
 <h1>Items</h1>
 
-<ul>
-<% @items.each do |item| %>
-  <li><%= link_to item.name, item %></li>
-<% end %>
-</ul>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+      <td><%= link_to item.name, item %></td>
+      <td><%= item.price %></td>
+      <td>
+        <%= link_to 'Edit', edit_item_path(item) %>
+        <%= link_to 'X', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

@@ -26,17 +26,26 @@ class ItemsController < ApplicationController
 
   # GET /items/:id/edit
   def edit
-
+    @item = Item.find(params[:id])
   end
 
   # PUT /items/:id
   def update
-
+    @item = Item.find(params[:id])
+    @item.update_attributes item_params
+    
+    if @item.errors.empty?
+      redirect_to item_path @item.id
+    else
+      render :edit
+    end
   end
 
   # DELETE /items/:id
   def destroy
-
+    @item = Item.find params[:id]
+    @item.destroy!
+    redirect_to items_url
   end
 
   private
