@@ -1,11 +1,12 @@
 class ItemsController < ApplicationController
+  before_filter :find_item, only: [:show, :edit, :update, :destroy]
+
   def index
     @items = Item.all
   end
 
   # GET /items/:id
   def show
-    @item = Item.find(params[:id])
   end
 
   # GET /items/new
@@ -26,14 +27,12 @@ class ItemsController < ApplicationController
 
   # GET /items/:id/edit
   def edit
-    @item = Item.find(params[:id])
   end
 
   # PUT /items/:id
   def update
-    @item = Item.find(params[:id])
     @item.update_attributes item_params
-    
+
     if @item.errors.empty?
       redirect_to item_path @item.id
     else
@@ -43,7 +42,6 @@ class ItemsController < ApplicationController
 
   # DELETE /items/:id
   def destroy
-    @item = Item.find params[:id]
     @item.destroy!
     redirect_to items_url
   end
@@ -52,5 +50,9 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:name, :price, :real, :description, :weight)
+  end
+
+  def find_item
+    @item = Item.find params[:id]
   end
 end
