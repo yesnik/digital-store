@@ -71,6 +71,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-    @item = Item.find params[:id]
+    @item = Item.find_by_id params[:id]
+    render_404 unless @item
   end
 end
