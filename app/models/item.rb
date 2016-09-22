@@ -2,7 +2,8 @@ class Item < ApplicationRecord
   validates :name, presence: true
   validates :price, numericality: { greater_than: 0, allow_nil: true }
 
-  has_and_belongs_to_many :carts
+  has_many :positions
+  has_many :carts, through: :positions
 
   after_initialize { puts 'after_initialize' }
 
