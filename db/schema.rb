@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921183416) do
+ActiveRecord::Schema.define(version: 20160922181709) do
+
+  create_table "carts", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
+  end
 
   create_table "items", force: :cascade do |t|
     t.float    "price"
@@ -23,6 +30,19 @@ ActiveRecord::Schema.define(version: 20160921183416) do
     t.integer  "votes_count", default: 0
     t.index ["name"], name: "index_items_on_name"
     t.index ["price"], name: "index_items_on_price"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "login"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
