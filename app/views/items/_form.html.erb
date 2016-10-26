@@ -1,0 +1,24 @@
+<p>
+  <%= f.label :name %><br>
+  <%= f.text_field :name, value: @item.name %>
+  <%= @item.errors[:name].first %>
+</p>
+<p>
+  <%= f.label :price %><br>
+  <%= f.text_field :price, value: @item.price %>
+  <%= @item.errors[:price].first %>
+</p>
+<p>
+  <%= f.label :description %><br>
+  <%= f.text_area :description, value: @item.description %>
+  <%= @item.errors[:description].first %>
+</p>
+<p>
+  <%= f.check_box :real, value: @item.real %>
+  <%= f.label :real %>
+</p>
+<p>
+  <%= f.label :weight %><br>
+  <%= f.text_field :weight, value: @item.weight %>
+  <%= @item.errors[:weight].first %>
+</p>
