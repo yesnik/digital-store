@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     get 'expensive', on: :collection
   end
 
+  get 'admin/users_count': 'admin#users_count'
+
   get ':controller(/:action(/:id))'
 end
