@@ -3,7 +3,10 @@ class ItemsController < ApplicationController
                 only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
-    @items = Item.all
+    @items = Item.order('votes_count DESC', :price)
+    @items = @items.where('price >= ?', params[:price_gte]) if params[:price_gte]
+    @items = @items.created_today if params[:created_today]
+    @items = @items.where('votes_count >= ?', params[:votes_count_gte]) if params[:votes_count_gte]
   end
 
   # GET /items/:id

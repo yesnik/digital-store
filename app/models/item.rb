@@ -29,4 +29,6 @@ class Item < ApplicationRecord
   after_create_commit { puts 'after_create_commit' }
   after_update_commit { puts 'after_update_commit' }
   after_destroy_commit { puts 'after_destroy_commit' }
+
+  scope :created_today, -> { where('created_at > ?',  1.day.ago) }
 end
