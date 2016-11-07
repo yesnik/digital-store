@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   has_many :positions
   has_many :carts, through: :positions
   has_many :comments, as: :commentable
+  has_many :images, as: :imageable
 
   after_initialize { puts 'after_initialize' }
 

@@ -6,6 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+# Require carrierwave lib for file downloading
+require 'carrierwave/orm/activerecord'
+
 module DigitalStore
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
