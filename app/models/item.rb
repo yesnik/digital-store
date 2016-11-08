@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   has_many :comments, as: :commentable
   has_many :images, as: :imageable
 
+  accepts_nested_attributes_for :images, allow_destroy: true, reject_if: :image_file_invalid?
+
   after_initialize { puts 'after_initialize' }
 
   before_validation { puts 'before_validate' }
@@ -32,4 +34,10 @@ class Item < ApplicationRecord
   after_destroy_commit { puts 'after_destroy_commit' }
 
   scope :created_today, -> { where('created_at > ?',  1.day.ago) }
+
+  protected
+
+  def image_file_invalid?(attrs)
+    attrs[:file].blank? && attrs[:file_cache].blank?
+  end
 end

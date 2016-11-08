@@ -1,5 +1,5 @@
 <h1><%= @item.name %></h1>
-
+<p><%= link_to 'Edit item', edit_item_path(@item.id) %></p>
 <ul>
   <li>Price: <%= @item.price %></li>
   <li>Description: <%= urls_to_links(urls_to_images(@item.description)) %></li>
@@ -7,4 +7,10 @@
   <% if @item.real %>
     <li>Weight: <%= @item.weight %></li>
   <% end %>
+  Images:
+  <ol>
+    <% @item.images.each do |image| %>
+      <li><%= image_tag image.file.url if image.file.url %></li>
+    <% end %>
+  </ol>
 </ul>

@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.images.new
   end
 
   # POST /items
@@ -31,6 +32,7 @@ class ItemsController < ApplicationController
 
   # GET /items/:id/edit
   def edit
+    @item.images = [@item.images.new] if @item.images.blank?
   end
 
   # PUT /items/:id
@@ -70,7 +72,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, :real, :description, :weight)
+    params.require(:item).permit(:name, :price, :real, :description, :weight,
+                                 images_attributes: [:id, :file, :file_cache, :_destroy])
   end
 
   def find_item
