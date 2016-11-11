@@ -10,7 +10,7 @@
   Images:
   <ol>
     <% @item.images.each do |image| %>
-      <li><%= image_tag image.file.url if image.file.url %></li>
+      <li><%= clickable_thumb(image) %></li>
     <% end %>
   </ol>
 </ul>

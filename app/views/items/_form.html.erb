@@ -26,7 +26,7 @@
   <%= f.fields_for :images, @item.images do |f_images| %>
       <h4>Image <%= f_images.index + 1 %></h4>
       <div>
-        <%= image_tag f_images.object.file.url if f_images.object.file.url %>
+        <%= clickable_thumb(f_images.object) %>
         <br>
         <%= f_images.file_field :file %>
         <%= f_images.hidden_field :file_cache %>

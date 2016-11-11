@@ -4,6 +4,7 @@
     <tr>
       <th>Id</th>
       <th>Name</th>
+      <th>Images</th>
       <th>Price</th>
       <th>Votes</th>
       <th>Actions</th>
@@ -13,6 +14,11 @@
       <tr>
         <td><%= item.id %></td>
         <td><%= link_to item.name, item %></td>
+        <td>
+          <% item.images.each do |image| %>
+            <%= clickable_thumb(image) %>
+          <% end %>
+        </td>
         <td><%= item.price %></td>
         <td>
           <%= item.votes_count %>

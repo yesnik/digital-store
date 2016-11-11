@@ -8,4 +8,10 @@ module ApplicationHelper
     text.gsub! /\s+(https?\:\/\/.+)\s*/, '<a href="\1">\1</a>'
     text.html_safe
   end
+
+  # Returns thumb image wrapped in <a> tag to be clickable
+  #   image - instance of model Image
+  def clickable_thumb(image)
+    render partial: 'shared/clickable_thumb', locals: {image: image} if image.file.thumb.file.exists?
+  end
 end
