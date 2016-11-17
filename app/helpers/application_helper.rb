@@ -12,6 +12,6 @@ module ApplicationHelper
   # Returns thumb image wrapped in <a> tag to be clickable
   #   image - instance of model Image
   def clickable_thumb(image)
-    render partial: 'shared/clickable_thumb', locals: {image: image} if image.file.thumb.file.exists?
+    render partial: 'shared/clickable_thumb', locals: {image: image} if image.file.thumb.file
   end
 end
