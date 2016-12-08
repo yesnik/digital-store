@@ -52,6 +52,7 @@ group :test do
   gem 'factory_girl'
 end
 
+gem 'bootstrap', '~> 4.0.0.alpha5'
 gem 'carrierwave'
-gem 'mini_magick'
 gem 'haml'
+gem 'mini_magick'

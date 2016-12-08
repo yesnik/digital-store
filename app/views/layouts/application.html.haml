@@ -6,8 +6,7 @@
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    %nav
-      %ul
-        %li= link_to 'Items', items_path
+  %body.container
+    %nav.nav.nav-pills
+      = link_to 'Items', items_path, class: 'nav-link'
     = yield

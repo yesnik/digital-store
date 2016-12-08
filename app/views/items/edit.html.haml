@@ -1,12 +1,7 @@
 %h1 Edit item
-%h2 Form created with Rails
-= form_for @item do |f|
-  = render partial: 'form', locals: {f: f}
-  %p
-    = f.submit 'Save'
-%h2 Form created with html
-%form{:action => "/items", :method => "post"}
-  %label Name
-  %br/
-  %input{:name => "name", :type => "text"}/
-  %input{:type => "submit", :value => "Create"}/
+.row
+  .col-sm-6
+    = form_for @item do |f|
+      = render partial: 'form', locals: {f: f}
+      .form-group
+        = f.submit 'Save'
