@@ -1,5 +1,6 @@
 module ApplicationHelper
   def urls_to_images(text)
+    return '' unless text
     text.gsub! /\s+(https?\:\/\/.+(jpg|jpeg|png))\s*/, '<img src="\1">'
     text.html_safe
   end

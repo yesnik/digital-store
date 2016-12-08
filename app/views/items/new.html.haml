@@ -1,0 +1,13 @@
+%h1 Edit item
+%h2 Form created with Rails
+= form_for @item do |f|
+  = render partial: 'form', locals: {f: f}
+  %p
+    = f.submit 'Create'
+%h2 Form created with html
+%form{:action => "/items", :method => "post"}
+  %label Name
+  %br/
+  %input{:name => "item[name]", :type => "text"}/
+  %input{:type => "submit", :value => "Create"}/
+  = hidden_field_tag :authenticity_token, form_authenticity_token
