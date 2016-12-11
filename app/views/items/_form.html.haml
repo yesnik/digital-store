@@ -1,33 +1,15 @@
-.form-group
-  = f.label :name
-  %br/
-  = f.text_field :name, value: @item.name, class: 'form-control'
-  = @item.errors[:name].first
-.form-group
-  = f.label :price
-  %br/
-  = f.text_field :price, value: @item.price, class: 'form-control'
-  = @item.errors[:price].first
-.form-group
-  = f.label :description
-  %br/
-  = f.text_area :description, value: @item.description, class: 'form-control'
-  = @item.errors[:description].first
-.form-group
-  = f.check_box :real, value: @item.real
-  = f.label :real
-.form-group
-  = f.label :weight
-  %br/
-  = f.text_field :weight, value: @item.weight, class: 'form-control'
-  = @item.errors[:weight].first
+= f.input :name, class: 'form-control'
+= f.input :price, class: 'form-control'
+= f.input :description, as: :text, class: 'form-control'
+= f.input :real
+= f.input :weight, class: 'form-control'
 %h4 Images
 = f.fields_for :images, @item.images do |f_images|
   %h6 Image #{f_images.index + 1}
   .form-group
     = clickable_thumb(f_images.object)
     %br/
-    = f_images.file_field :file, class: 'form-control-file'
+    = f_images.input :file, as: :file, class: 'form-control-file'
     = f_images.hidden_field :file_cache
     %br/
     / To destroy associated model we have to define ID of associated model
@@ -40,3 +22,5 @@
   = f.fields_for :images, @item.images.new do |f_new_img|
     = f_new_img.file_field :file
     = f_new_img.hidden_field :file_cache
+.form-actions
+  = f.button :submit

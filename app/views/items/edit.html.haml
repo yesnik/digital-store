@@ -1,7 +1,5 @@
 %h1 Edit item
 .row
   .col-sm-6
-    = form_for @item do |f|
+    = simple_form_for(@item, html: {class: 'form-horizontal'}) do |f|
       = render partial: 'form', locals: {f: f}
-      .form-group
-        = f.submit 'Save'
