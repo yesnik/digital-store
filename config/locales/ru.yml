@@ -1,0 +1,33 @@
+ru:
+  activerecord:
+    models:
+      item: Товар
+    attributes:
+      item:
+        name: Имя
+        price: Цена
+        description: Описание
+        real: Реальный
+        weight: Вес
+  items:
+    edit:
+      edit_item: Редактировать товар
+    form:
+      add_image: Добавить изображение
+      destroy: Удалить
+      images: Изображения
+      pic: Картинка
+    index:
+      items: Товары
+  helpers:
+    submit:
+      # This will be the default ones, will take effect if no other
+      # are specifically defined for the models.
+      create: "Создать %{model}"
+      update: "Обновить %{model}"
+
+      # Those will however take effect for all the other models below
+      # for which we define a specific label.
+      item:
+        create: Добавить товар
+        update: Сохранить товар

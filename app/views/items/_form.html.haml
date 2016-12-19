@@ -3,9 +3,9 @@
 = f.input :description, as: :text, class: 'form-control'
 = f.input :real
 = f.input :weight, class: 'form-control'
-%h4 Images
+%h4= t('.images')
 = f.fields_for :images, @item.images do |f_images|
-  %h6 Image #{f_images.index + 1}
+  %h6 #{t('.pic')} #{f_images.index + 1}
   .form-group
     = clickable_thumb(f_images.object)
     %br/
@@ -16,8 +16,8 @@
     = f_images.hidden_field :id
     - if f_images.object.persisted?
       = f_images.check_box :_destroy, class: 'form-check-input'
-      Destroy?
-%h4 Add new image
+      = t('.destroy')
+%h4= t('.add_image')
 .form-group
   = f.fields_for :images, @item.images.new do |f_new_img|
     = f_new_img.file_field :file

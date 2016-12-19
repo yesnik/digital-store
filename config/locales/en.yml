@@ -20,4 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  items:
+    form:
+      add_image: Add image
+      destroy: Destroy
+      images: Images
+      pic: Picture
+  helpers:
+    submit:
+      # This will be the default ones, will take effect if no other
+      # are specifically defined for the models.
+      create: "Create %{model}"
+      update: "Update %{model}"

@@ -1,4 +1,4 @@
-%h1 Items
+%h1= t('.items')
 - if @items.present?
   %table.table.table-striped.table-hover
     %thead.thead-inverse
@@ -27,4 +27,4 @@
 - else
   No items
 %p
-  = link_to 'Add item', new_item_path, class: 'btn btn-success'
+  = link_to t('helpers.submit.item.create'), new_item_path, class: 'btn btn-success'
