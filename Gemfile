@@ -57,3 +57,5 @@ gem 'carrierwave'
 gem 'haml'
 gem 'mini_magick'
 gem 'simple_form'
+gem 'exception_notification'
+
